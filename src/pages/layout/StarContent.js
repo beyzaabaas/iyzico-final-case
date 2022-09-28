@@ -1,143 +1,50 @@
-import { SearchOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Table } from "antd";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { baseService } from "../../api/baseService";
-import Highlighter from 'react-highlight-words';
+import Logo from "../../assests/Star_Wars_Logo.png"
+
 
 function StarContent() {
   const [starships, setStarships] = useState([]);
-  const [searchText, setSearchText] = useState('');
-  const [searchedColumn, setSearchedColumn] = useState('');
-  const searchInput = useRef(null);
-
+  const imgURL = "https://starwars-visualguide.com/assets/img/starships/";
   useEffect(() => {
     baseService.getlAll("/starships").then((data) => {
       setStarships(data.results);
     });
   }, []);
 
-  const handleSearch = (selectedKeys, confirm, dataIndex) => {
-    confirm();
-    setSearchText(selectedKeys[0]);
-    setSearchedColumn(dataIndex);
-  };
-
-  const handleReset = (clearFilters) => {
-    clearFilters();
-    setSearchText('');
-  };
-
-  const getColumnSearchProps = (dataIndex) => ({
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
-      <div
-        style={{
-          padding: 8,
-        }}
-      >
-        <Input
-          ref={searchInput}
-          placeholder={`Search ${dataIndex}`}
-          value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
-          style={{
-            marginBottom: 8,
-            display: 'block',
-          }}
-        />
-        <Space>
-          <Button
-            type="primary"
-            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
-            icon={<SearchOutlined />}
-            size="small"
-            style={{
-              width: 90,
-            }}
-          >
-            Search
-          </Button>
-          <Button
-            onClick={() => clearFilters && handleReset(clearFilters)}
-            size="small"
-            style={{
-              width: 90,
-            }}
-          >
-            Reset
-          </Button>
-          <Button
-            type="link"
-            size="small"
-            onClick={() => {
-              confirm({
-                closeDropdown: false,
-              });
-              setSearchText(selectedKeys[0]);
-              setSearchedColumn(dataIndex);
-            }}
-          >
-            Filter
-          </Button>
-        </Space>
-      </div>
-    ),
-    filterIcon: (filtered) => (
-      <SearchOutlined
-        style={{
-          color: filtered ? '#1890ff' : undefined,
-        }}
-      />
-    ),
-    onFilter: (value, record) =>
-      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
-    onFilterDropdownOpenChange: (visible) => {
-      if (visible) {
-        setTimeout(() => searchInput.current?.select(), 100);
-      }
-    },
-    render: (text) =>
-      searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{
-            backgroundColor: '#ffc069',
-            padding: 0,
-          }}
-          searchWords={[searchText]}
-          autoEscape
-          textToHighlight={text ? text.toString() : ''}
-        />
-      ) : (
-        text
-      ),
-  });
-  
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      ...getColumnSearchProps('name'),
-    },
-    {
-      title: "Model",
-      dataIndex: "model",
-      ...getColumnSearchProps('model'),
-    },
-    {
-      title: "Hyperdrive Rating",
-      dataIndex: "hyperdrive_rating",
-      ...getColumnSearchProps('hyperdrive_rating'),
-    },
-  ];
+  function getId(url) {
+    return url.split('/')[url.split('/').length - 2]
+  }
   return (
     <>
-    <div>
-      <>
-      <Table columns={columns} dataSource={starships}  style={{backgroundColor:"transparent"}}></Table>
-      </>
-    </div>
+      <div className="container ">
+        <div className="row">
+          {starships.map((starships) => (
+            <div className="card" style={{ width: "21rem", minHeight: "23rem" }}>
+              <img
+                className="card-img-top"
+                src={`${imgURL+getId(starships.url)}.jpg`}
+                alt="Card image cap"
+                // oError={`this.src=${Logo}`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src=`${Logo}`;
+                }}
+              ></img>
+              <div className="">
+
+                
+                <h4>{starships.name}</h4>
+                <h6>{starships.model}</h6>
+                <p>{starships.hyperdrive_rating}</p>
+                <button>Go to Detail</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default StarContent
+export default StarContent;
