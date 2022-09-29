@@ -5,24 +5,25 @@ export const baseService = {
   getlAll: async (url) => {
     let response = [];
     await axios
-      .get(API_URL +url)
+      .get(API_URL + url)
       .then((res) => {
         response = res.data;
       })
       .catch((err) => {
         console.log("Error");
       });
-      return response;
+    return response;
   },
-  getById:async(url,id)=> {
+  getById: async (url, id) => {
     let response = {};
-    axios
-      .get(API_URL+url+"/"+id)
+    await axios
+      .get(API_URL + url + "/" + id)
       .then((res) => {
         response = res.data;
       })
       .catch((err) => {
         console.log("Error");
       });
-      return response;}
-}
+    return response;
+  },
+};

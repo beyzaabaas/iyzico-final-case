@@ -1,12 +1,11 @@
-
-.row{
+.row {
   display: flex;
   justify-content: center;
- align-items: center;
+  align-items: center;
 }
 .row .card {
   padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 40%;
   height: 150px;
@@ -15,5 +14,14 @@
 }
 
 .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+.btn-details {
+  background-color: rgba(93, 101, 123, 0.382);
+  color: #dedede;
+  border: none;
+  border-radius: 2px;
+}
+.btn-details:hover {
   box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
 }

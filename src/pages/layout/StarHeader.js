@@ -12,6 +12,9 @@ function StarHeader() {
         style={{opacity:"0.8"}}
       ></img>
      </div>
+     <div>
+     
+     </div>
     </>
   );
 }
