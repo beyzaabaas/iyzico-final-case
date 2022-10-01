@@ -11,10 +11,8 @@ function App() {
       <StarHeader />
       <Routes>
         <Route path="/" index element={<StarContent />} />
-        {/* <Route path="/*" element={<Pages />} /> */}
         <Route path="starships/:id" element={<StarDetail />}></Route>
       </Routes>
-      {/* <StarDetail></StarDetail> */}
     </div>
   );
 }
