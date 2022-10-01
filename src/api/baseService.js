@@ -14,16 +14,14 @@ export const baseService = {
       });
     return response;
   },
-  getById: async (url, id) => {
+  getById: (url, id) => {
     let response = {};
-    await axios
-      .get(API_URL + url + "/" + id)
-      .then((res) => {
-        response = res.data;
-      })
-      .catch((err) => {
-        console.log("Error");
-      });
-    return response;
+    return axios.get(API_URL + url + "/" + id);
+    // .then((res) => {
+    //   response = res.data;
+    // })
+    // .catch((err) => {
+    //   console.log("Error");
+    // });
   },
 };

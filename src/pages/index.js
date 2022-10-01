@@ -10,7 +10,7 @@ function Index() {
     <>
       <StarHeader />
       <Routes>
-        <Route index element={<StarContent />} />
+        <Route path="/" index element={<StarContent />} />
       </Routes>
     </>
   );

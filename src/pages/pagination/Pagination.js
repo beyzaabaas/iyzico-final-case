@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Pagination = ({
   nPages,
@@ -7,25 +8,13 @@ const Pagination = ({
   isInfinite = false,
 }) => {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
+  const navigate = useNavigate();
+
   if (isInfinite === false) {
     return (
       <>
         <nav>
           <ul className="pagination">
-            <li className="page-item">
-              <a
-                className="page-link"
-                href="#"
-                style={{
-                  backgroundColor: "rgba(29, 35, 51, 0.952",
-                  color: "#dedede",
-                  border: "none",
-                }}
-              >
-                Previous
-              </a>
-            </li>
-
             {pageNumbers.map((item) => (
               <li
                 key={item}
@@ -49,6 +38,7 @@ const Pagination = ({
               <a
                 className="page-link "
                 href="#"
+                onClick={() => navigate(+1)}
                 style={{
                   backgroundColor: "rgba(29, 35, 51, 0.952",
                   color: "#dedede",

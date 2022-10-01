@@ -17,11 +17,52 @@
   box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
 }
 .btn-details {
-  background-color: rgba(93, 101, 123, 0.382);
+  background-color: transparent;
   color: #dedede;
   border: none;
-  border-radius: 2px;
+  display: flex;
+  justify-content: right;
 }
 .btn-details:hover {
   box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+.detail {
+  padding: 100px;
+}
+.detail .card {
+  background-color: rgba(93, 101, 123, 0.382);
+}
+.card-detail-text {
+  text-align: left;
+  justify-content: center;
+  /* padding-left: 30px; */
+}
+.detail-text {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.detail .col img {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+  margin: 20px;
+  max-width: 22rem;
+  border-radius: 23px;
+}
+.back {
+  margin: 30px 0 0 0;
+  display: flex;
+  float: right;
+  background-color: rgba(93, 101, 123, 0.382);
+  color: #dedede;
+  border: none;
+}
+.back:hover {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+input {
+  background-color: rgba(93, 101, 123, 0.382);
+  color: #dedede;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
