@@ -11,3 +11,71 @@
   color: #dddd;
   font-family: "Silkscreen", cursive;
 }
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row .card {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+  height: 150px;
+  margin: 20px;
+  background-color: rgba(29, 35, 51, 0.952);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+.btn-details {
+  background-color: transparent;
+  color: #dedede;
+  border: none;
+  display: flex;
+  justify-content: right;
+}
+.btn-details:hover {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+.detail {
+  padding: 100px;
+}
+.detail .card {
+  background-color: rgba(93, 101, 123, 0.382);
+}
+.card-detail-text {
+  text-align: left;
+  justify-content: center;
+  /* padding-left: 30px; */
+}
+.detail-text {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.detail .col img {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+  margin: 20px;
+  max-width: 22rem;
+  border-radius: 23px;
+}
+.back {
+  margin: 30px 0 0 0;
+  display: flex;
+  float: right;
+  background-color: rgba(93, 101, 123, 0.382);
+  color: #dedede;
+  border: none;
+}
+.back:hover {
+  box-shadow: 0 8px 16px 0 rgba(154, 160, 98, 0.4);
+}
+input {
+  background-color: rgba(93, 101, 123, 0.382);
+  color: #dedede;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -24,7 +24,6 @@ function StarDetail() {
   // }
   return (
     <>
-      <StarHeader></StarHeader>
       {
         <div className="container detail">
           <div className="card">
