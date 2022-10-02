@@ -8,14 +8,15 @@ function StarContent() {
   const params = useParams();
   const [starships, setStarships] = useState({ results: [], count: 0 });
   const [page, setPage] = useState(params.page ? params.page : 1);
-
+  const [loading, setLoading] = useState(true);
   const nPages = Math.ceil(starships.count / 10);
 
   const imgURL = "https://starwars-visualguide.com/assets/img/starships/";
 
   useEffect(() => {
-    baseService.getlAll(`starships?page&=${page}`).then((data) => {
+    baseService.getlAll(`starships?page=${page}`).then((data) => {
       setStarships(data);
+      setLoading(false);
     });
   }, [page]);
 
