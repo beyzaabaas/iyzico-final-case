@@ -7,7 +7,6 @@ function StarHeader() {
       <div style={{ alignItems: "center" }}>
         <img src={Logo} width={300} style={{ opacity: "0.8" }}></img>
       </div>
-      <div></div>
     </>
   );
 }

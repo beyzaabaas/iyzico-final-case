@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { baseService } from "../../api/baseService";
 import broken from "../../assests/broken-image.png";
 import { useNavigate } from "react-router-dom";
-import StarHeader from "../layout/StarHeader";
 
 function StarDetail() {
   const params = useParams();
@@ -19,9 +18,6 @@ function StarDetail() {
     });
   }, []);
 
-  // function getId(url) {
-  //   return url.split("/")[url.split("/").length - 2];
-  // }
   return (
     <>
       {
